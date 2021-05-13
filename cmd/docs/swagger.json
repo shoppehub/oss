@@ -1,0 +1,77 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample server Petstore server.",
+        "title": "Swagger Example API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "API Support",
+            "url": "http://www.swagger.io/support",
+            "email": "support@swagger.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "host": "spiderapi.dev.chemball.com:4000",
+    "basePath": "/",
+    "paths": {
+        "/api/oss/getconfig": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "aliyun oss upload policy",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "上传的目录，默认是 upload",
+                        "name": "upload_dir",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "schema": {
+                            "$ref": "#/definitions/service.PolicyToken"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "service.PolicyToken": {
+            "type": "object",
+            "properties": {
+                "accessid": {
+                    "type": "string"
+                },
+                "callback": {
+                    "type": "string"
+                },
+                "dir": {
+                    "type": "string"
+                },
+                "expire": {
+                    "type": "integer"
+                },
+                "host": {
+                    "type": "string"
+                },
+                "policy": {
+                    "type": "string"
+                },
+                "signature": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

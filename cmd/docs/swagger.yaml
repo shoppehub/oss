@@ -1,0 +1,51 @@
+basePath: /
+definitions:
+  service.PolicyToken:
+    properties:
+      accessid:
+        type: string
+      callback:
+        type: string
+      dir:
+        type: string
+      expire:
+        type: integer
+      host:
+        type: string
+      policy:
+        type: string
+      signature:
+        type: string
+    type: object
+host: spiderapi.dev.chemball.com:4000
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a sample server Petstore server.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Swagger Example API
+  version: "1.0"
+paths:
+  /api/oss/getconfig:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 上传的目录，默认是 upload
+        in: query
+        name: upload_dir
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: '#/definitions/service.PolicyToken'
+      summary: aliyun oss upload policy
+swagger: "2.0"
