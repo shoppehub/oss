@@ -19,7 +19,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/shoppehub/oss/conf"
+	"github.com/shoppehub/conf"
 )
 
 // 请填写您的AccessKeyId。
@@ -43,14 +43,14 @@ const (
 
 var coder = base64.NewEncoding(base64Table)
 
-func init() {
+func Init() {
+	if accessKeyId != "" {
+		return
+	}
 	accessKeyId = conf.GetString("oss.accessKeyId")
 	accessKeySecret = conf.GetString("oss.accessKeySecret")
 	host = conf.GetString("oss.host")
 	callbackUrl = conf.GetString("oss.callbackUrl")
-
-	// log.Println(conf.GetString("accessKeyId"))
-
 }
 
 func base64Encode(src []byte) []byte {
@@ -68,7 +68,7 @@ type ConfigStruct struct {
 }
 
 type PolicyToken struct {
-	AccessKeyId string `json:"accessid"`
+	AccessKeyId string `json:"OSSAccessId"`
 	Host        string `json:"host"`
 	Expire      int64  `json:"expire"`
 	Signature   string `json:"signature"`

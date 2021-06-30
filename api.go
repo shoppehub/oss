@@ -16,6 +16,8 @@ import (
 // @Router /api/oss/getconfig [get]
 func getOssConfig(ctx *gin.Context) {
 
+	service.Init()
+
 	upload_dir := ctx.Query("upload_dir")
 
 	response := service.Get_policy_token(upload_dir)

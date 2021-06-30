@@ -5,7 +5,6 @@ import (
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-	"github.com/shoppehub/oss/conf"
 )
 
 func New() *gin.Engine {
@@ -27,7 +26,7 @@ func New() *gin.Engine {
 
 func Start(r *gin.Engine) {
 	// 启动服务，并默认监听4000端口
-	port := conf.GetString(conf.PORT)
+	port := "4000"
 	log.Println("start server on " + port)
 
 	r.Run(":" + port)
