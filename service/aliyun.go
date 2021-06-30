@@ -68,7 +68,7 @@ type ConfigStruct struct {
 }
 
 type PolicyToken struct {
-	AccessKeyId string `json:"OSSAccessId"`
+	AccessKeyId string `json:"OSSAccessKeyId"`
 	Host        string `json:"host"`
 	Expire      int64  `json:"expire"`
 	Signature   string `json:"signature"`
