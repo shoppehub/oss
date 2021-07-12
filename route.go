@@ -6,6 +6,10 @@ func Route(r *gin.Engine) {
 
 	r.GET("/api/oss/getconfig", getOssConfig)
 
+	r.POST("/api/oss/del", delOss)
+
+	initOSS()
+
 	// r.POST("/api/oss/callback", getOssConfig)
 
 }
