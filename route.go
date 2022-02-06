@@ -10,6 +10,12 @@ func Route(r *gin.Engine) {
 
 	initOSS()
 
+	imOss := r.Group("/api/im/oss")
+	{
+		imOss.GET("/getImOssConfig", getImOssConfig)
+	}
+	initImOSS()
+
 	// r.POST("/api/oss/callback", getOssConfig)
 
 }

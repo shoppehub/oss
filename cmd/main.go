@@ -1,7 +1,12 @@
 package main
 
 import (
+	"fmt"
+	"github.com/gin-gonic/gin"
+	"github.com/shoppehub/conf"
+	oss2 "github.com/shoppehub/oss"
 	_ "github.com/shoppehub/oss/cmd/docs"
+	"github.com/sirupsen/logrus"
 )
 
 // @title Swagger Example API
@@ -25,5 +30,16 @@ func main() {
 	// url := ginSwagger.URL("/swagger/doc.json") // The url pointing to API definition
 	// r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
 
-	// oss.Start(r)
+	//oss.Start(r)
+
+	conf.Init("")
+	port := conf.GetInt("port")
+	Port := 4000
+	if port != 0 {
+		Port = int(port)
+	}
+	logrus.Info("start server on " + fmt.Sprint(Port))
+	r := gin.Default()
+	oss2.Route(r)
+	r.Run("0.0.0.0:" + fmt.Sprint(Port))
 }
